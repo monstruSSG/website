@@ -74,7 +74,7 @@ module.exports.handler = async function (event, callback) {
 
     // restore `getConnection()` if it has been overwritten by `close()`
     if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
-      delete sequelize.connectionManager.getConnection;
+      delete sequelize.connectionManager.getConnection; // In typescript this will trigger a compilation error since getConnection property is not optional
     }
   }
 
